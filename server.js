@@ -25,7 +25,7 @@ function run() {
         secret: process.env.SESSION_SECRET,
         store: new RedisStore({ client: redisClient }),
         resave: false,
-        saveUninitialized: true,
+        saveUninitialized: false,
         cookie: { 
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
