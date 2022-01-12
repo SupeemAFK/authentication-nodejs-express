@@ -34,8 +34,15 @@ const userSchema = mongoose.Schema({
         type: Boolean,
         default: false
     },
-    otpSecret: {
-        type: String,
+    two_factor_temp_secret: {
+        type: Object,
+    },
+    two_factor_secret: {
+        type: Object,
+    },
+    two_factor_enabled: {
+        type: Boolean,
+        default: false
     },
     lastSignedIn: {
         type: Date,

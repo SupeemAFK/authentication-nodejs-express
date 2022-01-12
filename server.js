@@ -8,7 +8,7 @@ const redisClient = require('redis').createClient();
 const RedisStore = require('connect-redis')(session);
 const authRoute = require('./routes/auth');
 const passport = require('passport');
-require('./passport/passport');
+require('./config/passport');
 require('dotenv').config()
 
 function run() {

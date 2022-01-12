@@ -11,6 +11,7 @@ function signin(req, res) {
     passport.authenticate('local-signin', (err, user, info) => {
         if (err) return res.status(500).send();
         if (!user) return res.status(400).json({ message: info?.message });
+        if (user.two_factor_enabled) return res.status(200).json({ message: "2FA" })
         req.logIn(user, () => res.status(200).json({ message: info?.message }));
     })(req, res);
 }
@@ -27,6 +28,7 @@ function oauthSignin(req, res) {
     passport.authenticate('google', (err, user, info) => {
         if (err) return res.status(500).send();
         if (!user) return res.status(400).json({ message: info?.message });
+        if (user.two_factor_enabled) return res.status(200).json({ message: "2FA" })
         req.logIn(user, () => res.status(200).redirect(process.env.CLIENT_URL));
     })(req, res);
 }

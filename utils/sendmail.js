@@ -7,7 +7,7 @@ async function sendmail(options) {
     const { to, subject, text, html } = options;
     const msg = {
         to: to,
-        from: 'kuypeem0@gmail.com', // Use the email address or domain you verified above
+        from: process.env.VERIFIED_EMAIL, // Use the email address or domain you verified above
         subject: subject,
         text: text,
         html: html,
